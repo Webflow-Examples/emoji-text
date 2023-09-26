@@ -1,4 +1,4 @@
-# svg-helper
+# emoji-text
 
 This is an example Webflow Designer extension written in TypeScript to get you started. Check out our [documentation](https://docs.developers.webflow.com/v2.0.0/docs/create-a-designer-extensions) for in-depth information about Designer Extension features and API.
 
