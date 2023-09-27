@@ -1,14 +1,14 @@
 {
-  "name": "svg-helper",
+  "name": "emoji-text-sample",
   "version": "1.0.0",
   "private": true,
   "main": "index.js",
   "scripts": {
-    "build": "npm install && tsc -p tsconfig.json && \"webflow extension bundle\" \"tsc -p tsconfig.json --watch --preserveWatchOutput\"",
-    "dev": "npm install && tsc -p tsconfig.json && concurrently -r \"webflow extension serve\" \"tsc -p tsconfig.json --watch --preserveWatchOutput\""
+    "build": "npm install && tsc -p tsconfig.json && webflow extension bundle",
+    "dev": "npm install && concurrently -r \"webflow extension serve\" \"tsc -p tsconfig.json --watch --preserveWatchOutput\""
   },
   "devDependencies": {
-    "@webflow/designer-extension-typings": "^0.1.6",
+    "@webflow/designer-extension-typings": "*",
     "concurrently": "*",
     "typescript": "*"
   }
