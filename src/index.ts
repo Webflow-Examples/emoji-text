@@ -1,10 +1,12 @@
-const SMILE_EMOJI = "😊";
-const WINK_EMOJI = "😉";
-const HEART_EMOJI = "😍";
-const CRY_EMOJI = "😭";
+const emojiMap = {
+  smile: "😊",
+  wink: "😉",
+  heart: "😍",
+  cry: "😭"
+};
 
 // default to smile
-let selectedEmoji = SMILE_EMOJI;
+let selectedEmoji = emojiMap.smile;
 addButtonListeners();
 
 document.getElementById("extension-form").onsubmit = async (event) => {
@@ -54,18 +56,18 @@ function handleEmojiClick(emoji) {
 
 function addButtonListeners() {
   document.getElementById("smile").onclick = () => {
-    handleEmojiClick(SMILE_EMOJI);
+    handleEmojiClick(emojiMap.smile);
   };
 
   document.getElementById("wink").onclick = () => {
-    handleEmojiClick(WINK_EMOJI);
+    handleEmojiClick(emojiMap.wink);
   };
 
   document.getElementById("heart").onclick = () => {
-    handleEmojiClick(HEART_EMOJI);
+    handleEmojiClick(emojiMap.heart);
   };
 
   document.getElementById("cry").onclick = () => {
-    handleEmojiClick(CRY_EMOJI);
+    handleEmojiClick(emojiMap.cry);
   };
 }
