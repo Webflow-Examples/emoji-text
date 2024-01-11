@@ -11,12 +11,11 @@ addButtonListeners();
 
 document.getElementById("extension-form").onsubmit = async (event) => {
   event.preventDefault();
-
   // Get the current selected Element
   let el = await webflow.getSelectedElement();
 
   // If styles can be set on the Element
-  if (el && el.styles && el.configurable && el.children) {
+  if (el && el.styles && el.children) {
     //Get current element's style
     const currentStyle = await el.getStyles();
 
@@ -24,12 +23,11 @@ document.getElementById("extension-form").onsubmit = async (event) => {
     const emojiStyle = await createOrUseStyle("emoji-style");
 
     // Create a new element that will display the text-emoji
-    const labelElement = await webflow.createDOM("span");
-    labelElement.setStyles([...currentStyle, emojiStyle]);
-    labelElement.setTextContent(selectedEmoji);
+    const labelElement = await el.append(webflow.elementPresets.DOM);
+    await labelElement.setTag("span");
+    await labelElement.setStyles([...currentStyle, emojiStyle]);
+    await labelElement.setTextContent(selectedEmoji);
 
-    el.setChildren([...el.getChildren(), labelElement]);
-    await el.save();
   } else {
     alert("Please select a text element");
   }
@@ -44,8 +42,8 @@ async function createOrUseStyle(styleName) {
     return style;
   } else {
     // Create a new style, return it
-    const emojiStyle = webflow.createStyle(styleName);
-    emojiStyle.setProperties({ "background-color": "#FF00FF" });
+    const emojiStyle = await webflow.createStyle(styleName);
+    await emojiStyle.setProperties({ "background-color": "#FF00FF" });
     return emojiStyle;
   }
 }

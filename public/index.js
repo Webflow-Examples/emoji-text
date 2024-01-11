@@ -21,17 +21,16 @@ document.getElementById("extension-form").onsubmit = (event) => __awaiter(this, 
     // Get the current selected Element
     let el = yield webflow.getSelectedElement();
     // If styles can be set on the Element
-    if (el && el.styles && el.configurable && el.children) {
+    if (el && el.styles && el.children) {
         //Get current element's style
         const currentStyle = yield el.getStyles();
         // Get style
         const emojiStyle = yield createOrUseStyle("emoji-style");
         // Create a new element that will display the text-emoji
-        const labelElement = yield webflow.createDOM("span");
-        labelElement.setStyles([...currentStyle, emojiStyle]);
-        labelElement.setTextContent(selectedEmoji);
-        el.setChildren([...el.getChildren(), labelElement]);
-        yield el.save();
+        const labelElement = yield el.append(webflow.elementPresets.DOM);
+        yield labelElement.setTag("span");
+        yield labelElement.setStyles([...currentStyle, emojiStyle]);
+        yield labelElement.setTextContent(selectedEmoji);
     }
     else {
         alert("Please select a text element");
@@ -48,8 +47,8 @@ function createOrUseStyle(styleName) {
         }
         else {
             // Create a new style, return it
-            const emojiStyle = webflow.createStyle(styleName);
-            emojiStyle.setProperties({ "background-color": "#FF00FF" });
+            const emojiStyle = yield webflow.createStyle(styleName);
+            yield emojiStyle.setProperties({ "background-color": "#FF00FF" });
             return emojiStyle;
         }
     });
