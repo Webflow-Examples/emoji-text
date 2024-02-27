@@ -1,4 +1,6 @@
 {
   "name": "emoji-text-sample",
-  "size": "default"
+  "publicDir": "public",
+  "size": "default",
+  "apiVersion": "2"
 }
