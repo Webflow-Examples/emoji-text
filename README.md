@@ -1,6 +1,6 @@
 # emoji-text
 
-This is an example Webflow Designer extension written in TypeScript that inserts a text emoji into an element selected within the Designer. Check out our [documentation](https://docs.developers.webflow.com/data/docs/designer-extensions) for in-depth information about Designer Extension features and API.
+This is an example Webflow Designer extension written in TypeScript that inserts a text emoji into an element selected within the Designer. Check out our [documentation](https://docs.developers.webflow.com/designer/reference/introduction) for in-depth information about Designer Extension features and API.
 
 ## Developing
 
